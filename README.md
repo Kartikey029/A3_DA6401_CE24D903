@@ -200,3 +200,80 @@ Devanagari target
 Devanagari predicted
 Correctness (✅ or ❌)
 
+LSTM with Attention on Character-Level Text Prediction
+This project implements a character-level text prediction model using an LSTM enhanced with Transformer-style attention. The model is trained on a historical text excerpt to predict the next character in a sequence, and attention heatmaps are used to visualize the model's focus across input sequences.
+
+📌 Overview
+Model Architecture: LSTM + Transformer-style attention mechanism
+
+Task: Predict next character in a text sequence
+
+Visualization: Heatmap of attention weights to understand character dependencies
+
+Use Case: Educational demonstration of attention mechanisms in sequence modeling
+
+🧠 Key Features
+Custom Attention Layer: Computes context vectors via scaled dot-product attention over LSTM outputs.
+
+Sharpened Focus: Attention temperature scaling allows better control over focus sharpness.
+
+Connectivity Visualization: Attention weights plotted as a heatmap to analyze model behavior.
+
+Character-Level Processing: Offers fine-grained insights into how characters influence predictions.
+
+🧰 Requirements
+Ensure the following libraries are installed:
+
+bash
+Copy
+Edit
+pip install numpy torch matplotlib seaborn
+🚀 How to Run
+Clone or download the script.
+
+Run the Python file:
+
+bash
+Copy
+Edit
+python lstm_attention_char_model.py
+After training (300 epochs), the script:
+
+Outputs attention weights for a test input.
+
+Generates a heatmap (connectivity_heatmap_1.png) showing input-output character dependencies.
+
+📊 Output
+Heatmap File: connectivity_heatmap_1.png (saved in the script's directory)
+
+Logs: Epoch-wise training loss and attention summaries to understand focus alignment.
+
+Example of logged attention focus:
+
+pgsql
+Copy
+Edit
+When decoding output character 6 ('r'), the model focuses most on input character 16 ('a') with weight 0.1423
+🧩 Model Details
+Architecture
+text
+Copy
+Edit
+Input (seq_len x 1)
+     ↓
+LSTM Layer (256 hidden units)
+     ↓
+Self-Attention Mechanism
+     ↓
+Fully Connected Layer → Softmax Output
+Parameters
+seq_length: 20 (input sequence length)
+
+hidden_dim: 256 (LSTM hidden units)
+
+temperature: 0.3 (attention sharpness)
+
+epochs: 300
+
+📖 Training Data
+The text is a historical narrative describing the discovery of the Indus Valley Civilization, preprocessed to lowercase characters with spacing normalized.
