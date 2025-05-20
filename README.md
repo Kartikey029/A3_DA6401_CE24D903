@@ -200,25 +200,3 @@ Devanagari target
 Devanagari predicted
 Correctness (✅ or ❌)
 
-
-
-Notes
-
-Dataset Path: Transliteration models use a hardcoded path (/home/user/Downloads/dakshina_dataset_v1.0/hi/lexicons/). Modify base_path in train_sweep() if needed.
-Interruption: Transliteration models save the model state on Ctrl+C. The text generation model does not support interruption handling.
-WandB: Required for transliteration models but not for the text generation model.
-Beam Size: Defined in the attention model's sweep but not used in inference; consider implementing beam search.
-Scripts: Run all three scripts (transliteration_seq2seq.py, transliteration_seq2seq_attention.py, text_generation_lstm_attention.py) to execute all tasks.
-Execution Time: As of 11:37 PM IST on Tuesday, May 20, 2025, ensure sufficient computational resources, especially for GPU-based training.
-
-Future Improvements
-
-Implement beam search for the Seq2Seq with Attention model.
-Support additional languages from the Dakshina dataset.
-Experiment with other attention mechanisms (e.g., Luong attention) for transliteration.
-Add WandB integration for the text generation model.
-Optimize for longer sequences or larger datasets.
-Implement dynamic teacher forcing decay for transliteration models.
-
-License
-This project is licensed under the MIT License.
